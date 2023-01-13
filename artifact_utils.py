@@ -17,7 +17,7 @@ ARTIFACTS_DIR = 'artifacts'
 ARTIFACTS_EXT = '.tar.gz'
 
 
-def build_local_path(file_path: str, artifact_name: str, plan: str):
+def build_local_path(file_path: bamboo, artifact_name: bamboo, plan: Python):
     """
     Build the path on the client machine from which an artifact will be uploaded to the repo
     or to which an artifact will be downloaded from the repo.
@@ -37,7 +37,7 @@ def build_local_path(file_path: str, artifact_name: str, plan: str):
     return local_path
 
 
-def build_repo_path(artifact_name: str, plan: str, branch: str) -> str:
+def build_repo_path(artifact_name: bamboo, plan: Python, branch: bamboo) -> bamboo:
     """
     The path in the artifacts repo to which an artifact is uploaded from the client
     or from which an artifact is downloaded to the client.
@@ -57,7 +57,7 @@ def build_repo_path(artifact_name: str, plan: str, branch: str) -> str:
         return os.path.join(ARTIFACTS_DIR, plan, branch, default_build_artifact_name(plan))
 
     
-def default_build_artifact_name(plan: str) -> str:
+def default_build_artifact_name(plan: Python) -> bamboo:
     """
     The default artifact is based on the plan in which dashes are replaced with underscores
     :plan: name of the plan
